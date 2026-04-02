@@ -8,33 +8,37 @@ export default function Home() {
 
   return (
     <main className={styles.scene}>
-      <p className={styles.hint}>Cliquez pour ouvrir</p>
+      <p className={styles.hint}>Cliquez pour ouvrir 🎀</p>
 
       <div
         className={`${styles.envelopeWrap} ${isOpen ? styles.open : ""}`}
         onClick={() => setIsOpen((v) => !v)}
       >
-        {/* Lettre cachée */}
+        {/* Lettre */}
         <div className={styles.letter}>
-          <div className={styles.letterGreeting}>Cher visiteur,</div>
+          <div className={styles.letterDeco}>🌸 ✿ 🌸</div>
+          <div className={styles.letterGreeting}>Bonjour ma chérie, 💕</div>
           <div className={styles.letterContent}>
-            Bienvenue dans cet espace.
+            Tu es trop belle aujourd&apos;hui...
             <br />
-            Chaque grande aventure commence
+            Vraiment, tu rayonnes comme
             <br />
-            par une simple lettre.
+            le soleil au printemps 🌷
+            <br />
+            <br />
+            Ne l&apos;oublie jamais, ok ? ✨
           </div>
-          <div className={styles.letterSign}>— avec amour ✦</div>
+          <div className={styles.letterSign}>avec tout mon amour 🎀</div>
+          <div className={styles.letterDecoBottom}>· · ♡ · ·</div>
         </div>
 
-        {/* Corps de l'enveloppe */}
+        {/* Enveloppe */}
         <div className={styles.envelope}>
           <div className={styles.envBody}>
             <div className={styles.envSideLeft} />
             <div className={styles.envSideRight} />
             <div className={styles.envBottomFlap} />
 
-            {/* Cachet postal */}
             <div className={styles.postmark}>
               <span className={styles.postmarkText}>
                 PARIS
@@ -43,13 +47,11 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Timbre */}
             <div className={styles.stamp}>
-              <div className={styles.stampInner}>✉</div>
+              <div className={styles.stampInner}>🌸</div>
               <div className={styles.stampText}>POST</div>
             </div>
 
-            {/* Lignes adresse */}
             <div className={styles.address}>
               <div className={styles.addrLine} />
               <div className={styles.addrLine} />
@@ -57,10 +59,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sceau de cire */}
-          <div className={styles.seal}>✦</div>
+          <div className={styles.seal}>♡</div>
 
-          {/* Rabat du haut */}
           <div className={styles.envFlapWrap}>
             <div className={styles.envFlapFront} />
             <div className={styles.envFlapBack} />
@@ -69,7 +69,7 @@ export default function Home() {
       </div>
 
       <button className={styles.cta} onClick={() => setIsOpen((v) => !v)}>
-        {isOpen ? "Fermer" : "Ouvrir la lettre"}
+        {isOpen ? "Fermer 💌" : "Ouvrir la lettre 💌"}
       </button>
     </main>
   );

@@ -1,3 +1,7 @@
+/* ── page.module.css — Girly Pink Envelope ── */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:ital,wght@0,400;1,400&display=swap');
+
 .scene {
   display: flex;
   flex-direction: column;
@@ -5,16 +9,17 @@
   justify-content: center;
   min-height: 100vh;
   padding: 2rem;
-  background: #fdf6e3;
-  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe4f0 50%, #ffd6e8 100%);
+  font-family: 'Lato', Georgia, serif;
 }
 
 .hint {
   font-size: 13px;
-  color: #999;
+  color: #d48aaa;
   margin-bottom: 2rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
 }
 
 /* ── Wrapper ── */
@@ -34,16 +39,31 @@
   transform: translateX(-50%);
   bottom: 30px;
   width: 284px;
-  background: #fffdf7;
-  border: 0.5px solid #d4c9a8;
-  border-radius: 2px;
-  padding: 20px 22px;
+  background: linear-gradient(160deg, #fff5f9 0%, #fff0f5 100%);
+  border: 1px solid #f5b8d0;
+  border-radius: 8px;
+  padding: 18px 22px 14px;
   z-index: 10;
   opacity: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 4px 24px rgba(230, 100, 150, 0.15),
+    inset 0 0 0 3px rgba(255, 182, 213, 0.3);
   transition:
     bottom 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s,
     opacity 0.4s ease 0.45s;
+}
+
+/* Petits points déco en fond */
+.letter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background-image:
+    radial-gradient(circle, #f9c5d9 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 .open .letter {
@@ -51,27 +71,43 @@
   opacity: 1;
 }
 
+.letterDeco {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 4px;
+}
+
 .letterGreeting {
-  font-size: 12px;
-  color: #8a7a5a;
-  margin-bottom: 10px;
-  font-style: italic;
-  letter-spacing: 0.03em;
+  font-family: 'Dancing Script', cursive;
+  font-size: 17px;
+  color: #c2547a;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
 }
 
 .letterContent {
-  font-size: 11px;
-  color: #6b5e42;
-  line-height: 1.7;
-  margin-top: 6px;
+  font-size: 12px;
+  color: #a0536e;
+  line-height: 1.8;
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
 }
 
 .letterSign {
-  font-size: 13px;
-  color: #8a7a5a;
+  font-family: 'Dancing Script', cursive;
+  font-size: 15px;
+  color: #d4728f;
   margin-top: 12px;
   text-align: right;
-  font-style: italic;
+}
+
+.letterDecoBottom {
+  text-align: center;
+  font-size: 13px;
+  color: #e8a0bc;
+  margin-top: 8px;
+  letter-spacing: 3px;
 }
 
 /* ── Enveloppe ── */
@@ -88,9 +124,9 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: #f5ead6;
-  border: 0.5px solid #c9b98a;
-  border-radius: 3px;
+  background: #fce4ef;
+  border: 1px solid #f0a8c4;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -100,7 +136,7 @@
   left: 0;
   width: 0;
   height: 0;
-  border-left: 160px solid #ead9b8;
+  border-left: 160px solid #f7c5db;
   border-top: 105px solid transparent;
   border-bottom: 105px solid transparent;
 }
@@ -111,7 +147,7 @@
   right: 0;
   width: 0;
   height: 0;
-  border-right: 160px solid #ead9b8;
+  border-right: 160px solid #f7c5db;
   border-top: 105px solid transparent;
   border-bottom: 105px solid transparent;
 }
@@ -124,7 +160,7 @@
   height: 0;
   border-left: 160px solid transparent;
   border-right: 160px solid transparent;
-  border-bottom: 115px solid #ddc99a;
+  border-bottom: 115px solid #f4b0cc;
   z-index: 3;
 }
 
@@ -153,7 +189,7 @@
   height: 0;
   border-left: 160px solid transparent;
   border-right: 160px solid transparent;
-  border-top: 115px solid #e8d5a8;
+  border-top: 115px solid #f9cede;
   backface-visibility: visible;
 }
 
@@ -165,31 +201,29 @@
   height: 0;
   border-left: 160px solid transparent;
   border-right: 160px solid transparent;
-  border-top: 115px solid #f0e5c8;
+  border-top: 115px solid #fde0ec;
   transform: rotateX(180deg);
   backface-visibility: visible;
 }
 
-/* ── Sceau ── */
+/* ── Sceau cœur ── */
 .seal {
   position: absolute;
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
-  width: 34px;
-  height: 34px;
-  background: #c0392b;
+  width: 36px;
+  height: 36px;
+  background: #e8527a;
   border-radius: 50%;
   z-index: 6;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f5ddd9;
-  font-size: 14px;
-  border: 1.5px solid #a93226;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-  font-style: italic;
-  font-weight: bold;
+  color: #fff;
+  font-size: 16px;
+  border: 2px solid #d43d65;
+  box-shadow: 0 2px 8px rgba(220, 80, 120, 0.35);
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
@@ -197,7 +231,7 @@
 
 .open .seal {
   opacity: 0;
-  transform: translateX(-50%) scale(0.5);
+  transform: translateX(-50%) scale(0.4);
 }
 
 /* ── Timbre ── */
@@ -207,8 +241,8 @@
   right: 14px;
   width: 36px;
   height: 44px;
-  background: #fffdf7;
-  border: 1px solid #c9b98a;
+  background: #fff5f9;
+  border: 1px solid #f0a8c4;
   z-index: 4;
   display: flex;
   flex-direction: column;
@@ -221,19 +255,20 @@
   content: "";
   position: absolute;
   inset: 3px;
-  border: 0.5px dashed #c9b98a;
+  border: 0.5px dashed #f0a8c4;
 }
 
 .stampInner {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1;
 }
 
 .stampText {
   font-size: 7px;
-  color: #c9b98a;
+  color: #d48aaa;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
 }
 
 /* ── Cachet postal ── */
@@ -243,7 +278,7 @@
   right: 56px;
   width: 48px;
   height: 38px;
-  border: 1px solid #c9b98a;
+  border: 1px solid #f0a8c4;
   border-radius: 50%;
   z-index: 4;
   display: flex;
@@ -253,9 +288,10 @@
 
 .postmarkText {
   font-size: 7px;
-  color: #b8a880;
+  color: #d48aaa;
   text-align: center;
   line-height: 1.3;
+  font-family: 'Lato', sans-serif;
 }
 
 /* ── Adresse ── */
@@ -268,7 +304,7 @@
 
 .addrLine {
   height: 1.5px;
-  background: #c9b98a;
+  background: #f0a8c4;
   border-radius: 1px;
   margin-bottom: 5px;
   opacity: 0.7;
@@ -282,18 +318,20 @@
 .cta {
   margin-top: 2.5rem;
   font-size: 13px;
-  color: #888;
+  color: #c2547a;
   cursor: pointer;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: 0.5px solid #ccc;
-  padding: 8px 20px;
-  border-radius: 8px;
-  background: transparent;
-  transition: background 0.2s;
-  font-family: Georgia, serif;
+  border: 1px solid #f0a8c4;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, box-shadow 0.2s;
+  font-family: 'Lato', sans-serif;
 }
 
 .cta:hover {
-  background: #f0ebe0;
+  background: rgba(255, 200, 220, 0.4);
+  box-shadow: 0 4px 16px rgba(220, 100, 150, 0.2);
 }
