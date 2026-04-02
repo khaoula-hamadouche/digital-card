@@ -17,7 +17,7 @@ export default function Home() {
         {/* Lettre */}
         <div className={styles.letter}>
           <div className={styles.letterDeco}>🌸 ✿ 🌸</div>
-          <div className={styles.letterGreeting}>Bonjour ma chérie, 💕</div>
+          <div className={styles.letterGreeting}>Bonjour Lily , 💕</div>
           <div className={styles.letterContent}>
             Tu es trop belle aujourd&apos;hui...
             <br />
@@ -28,8 +28,8 @@ export default function Home() {
             <br />
             Ne l&apos;oublie jamais, ok ? ✨
           </div>
-          <div className={styles.letterSign}>avec tout mon amour 🎀</div>
-          <div className={styles.letterDecoBottom}>· · ♡ · ·</div>
+          <div className={styles.letterSign}>avec tout notre amour 🎀</div>
+          <div className={styles.letterDecoBottom}>· · ♡ Khaoulatez ♡ · ·</div>
         </div>
 
         {/* Enveloppe */}
@@ -41,9 +41,9 @@ export default function Home() {
 
             <div className={styles.postmark}>
               <span className={styles.postmarkText}>
-                PARIS
+                Hydra
                 <br />
-                2025
+                2026
               </span>
             </div>
 
