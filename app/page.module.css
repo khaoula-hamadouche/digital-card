@@ -1,330 +1,337 @@
-/* ── page.module.css — Wedding Card Sarah & Lamin ── */
+/* ── page.module.css — Girly Pink Envelope ── */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Raleway:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:ital,wght@0,400;1,400&display=swap');
 
-/* ── Scene ── */
 .scene {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100%;
-  background: #f5ede0;
-  overflow: hidden;
-}
-
-/* ── Card ── */
-.cardWrap {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  min-height: 100vh;
-  cursor: pointer;
-  perspective: 1400px;
-  overflow: hidden;
-}
-
-/* ── Panels ── */
-.panelLeft,
-.panelRight {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background: #fdf6ec;
-  overflow: hidden;
-  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
-  backface-visibility: hidden;
-  will-change: transform;
-  z-index: 2;
-}
-
-.panelLeft {
-  left: 0;
-  transform-origin: right center;
-  border-right: 0.5px solid #d4a96a;
-}
-
-.panelRight {
-  right: 0;
-  transform-origin: left center;
-  border-left: 0.5px solid #d4a96a;
-}
-
-.open .panelLeft {
-  transform: rotateY(-140deg);
-}
-
-.open .panelRight {
-  transform: rotateY(140deg);
-}
-
-/* ── Branch SVG ── */
-.branchSvg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* ── Cover monogram ── */
-.coverCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  pointer-events: none;
-  user-select: none;
-}
-
-.coverMonogram {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(32px, 7vw, 50px);
-  font-weight: 400;
-  font-style: italic;
-  color: #c9973e;
-  line-height: 1;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.coverSub {
-  font-size: clamp(8px, 1.5vw, 10px);
-  letter-spacing: 0.3em;
-  color: #b8924a;
-  text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
-}
-
-/* ── Inner content ── */
-.inner {
-  position: absolute;
-  inset: 0;
-  background: #fdf6ec;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1;
-  pointer-events: none;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe4f0 50%, #ffd6e8 100%);
+  font-family: 'Lato', Georgia, serif;
+}
+
+.hint {
+  font-size: 13px;
+  color: #d48aaa;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+
+/* ── Wrapper ── */
+.envelopeWrap {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  cursor: pointer;
+  perspective: 800px;
+  overflow: visible;
+}
+
+/* ── Lettre ── */
+.letter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  width: 284px;
+  background: linear-gradient(160deg, #fff5f9 0%, #fff0f5 100%);
+  border: 1px solid #f5b8d0;
+  border-radius: 8px;
+  padding: 18px 22px 14px;
+  z-index: 10;
   opacity: 0;
-  text-align: center;
-  padding: 1.5rem 2rem;
-  box-sizing: border-box;
-  transition: opacity 0.4s ease 0.6s;
+  box-shadow:
+    0 4px 24px rgba(230, 100, 150, 0.15),
+    inset 0 0 0 3px rgba(255, 182, 213, 0.3);
+  transition:
+    bottom 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s,
+    opacity 0.4s ease 0.45s;
 }
 
-.open .inner {
+/* Petits points déco en fond */
+.letter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background-image:
+    radial-gradient(circle, #f9c5d9 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.open .letter {
+  bottom: 130px;
   opacity: 1;
-  pointer-events: auto;
 }
 
-.innerRule {
-  width: 48px;
-  height: 0.5px;
-  background: #c9973e;
-  margin-bottom: 1rem;
+.letterDeco {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 4px;
 }
 
-.innerName {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(22px, 5vw, 34px);
-  font-weight: 600;
-  color: #5c3d0e;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
+.letterGreeting {
+  font-family: 'Dancing Script', cursive;
+  font-size: 17px;
+  color: #c2547a;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
 }
 
-.innerAmpersand {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(28px, 6vw, 42px);
+.letterContent {
+  font-size: 12px;
+  color: #a0536e;
+  line-height: 1.8;
+  font-family: 'Lato', sans-serif;
   font-style: italic;
-  color: #c9973e;
-  line-height: 1.1;
-  margin: 2px 0;
 }
 
-.innerTitle {
-  font-size: clamp(9px, 1.8vw, 11px);
-  letter-spacing: 0.22em;
-  color: #b8924a;
-  text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
-  margin-bottom: 1rem;
-  max-width: 280px;
-  line-height: 1.8;
+.letterSign {
+  font-family: 'Dancing Script', cursive;
+  font-size: 15px;
+  color: #d4728f;
+  margin-top: 12px;
+  text-align: right;
 }
 
-.innerDivider {
-  width: 64px;
-  height: 0.5px;
-  background: #d4a96a;
-  margin-bottom: 1rem;
+.letterDecoBottom {
+  text-align: center;
+  font-size: 13px;
+  color: #e8a0bc;
+  margin-top: 8px;
+  letter-spacing: 3px;
 }
 
-.innerInviteText {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(12px, 2.6vw, 14px);
-  color: #8b6535;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  max-width: 280px;
+/* ── Enveloppe ── */
+.envelope {
+  position: absolute;
+  bottom: 0;
+  width: 320px;
+  height: 210px;
+  z-index: 2;
 }
 
-/* ── Date box ── */
-.dateBox {
-  background: rgba(201, 151, 62, 0.1);
-  border: 0.5px solid #d4a96a;
-  padding: 10px 28px;
-  margin-bottom: 1rem;
+.envBody {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #fce4ef;
+  border: 1px solid #f0a8c4;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.dateMain {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(16px, 3.5vw, 24px);
-  font-weight: 600;
-  color: #5c3d0e;
-  letter-spacing: 0.08em;
+.envSideLeft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid #f7c5db;
+  border-top: 105px solid transparent;
+  border-bottom: 105px solid transparent;
 }
 
-.dateTime {
-  font-size: clamp(9px, 1.8vw, 11px);
-  letter-spacing: 0.22em;
-  color: #b8924a;
-  text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
-  margin-top: 3px;
+.envSideRight {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-right: 160px solid #f7c5db;
+  border-top: 105px solid transparent;
+  border-bottom: 105px solid transparent;
 }
 
-/* ── Location ── */
-.locationLabel {
-  font-size: clamp(8px, 1.4vw, 10px);
-  letter-spacing: 0.28em;
-  color: #c9973e;
-  text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
-  margin-bottom: 4px;
+.envBottomFlap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-bottom: 115px solid #f4b0cc;
+  z-index: 3;
 }
 
-.locationName {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(15px, 3.2vw, 22px);
-  font-weight: 600;
-  color: #5c3d0e;
-  margin-bottom: 2px;
+/* ── Rabat animé ── */
+.envFlapWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 115px;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
 }
 
-.locationAddr {
-  font-size: clamp(10px, 2vw, 13px);
-  color: #8b6535;
-  line-height: 1.8;
-  letter-spacing: 0.06em;
-  font-family: 'Raleway', sans-serif;
-  margin-bottom: 1rem;
+.open .envFlapWrap {
+  transform: rotateX(-178deg);
 }
 
-/* ── Map button ── */
-.mapBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #fff;
-  background: #c9973e;
-  border: none;
-  padding: 10px 22px;
-  cursor: pointer;
-  font-family: 'Raleway', sans-serif;
-  text-decoration: none;
-  transition: background 0.2s;
-  margin-bottom: 1rem;
+.envFlapFront {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 115px solid #f9cede;
+  backface-visibility: visible;
 }
 
-.mapBtn:hover {
-  background: #b8824a;
+.envFlapBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 115px solid #fde0ec;
+  transform: rotateX(180deg);
+  backface-visibility: visible;
 }
 
-.mapIcon {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-}
-
-/* ── Bottom rule & close ── */
-.innerRuleBottom {
-  width: 48px;
-  height: 0.5px;
-  background: #c9973e;
-  margin-bottom: 1rem;
-}
-
-.cta {
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #b8924a;
-  border: 0.5px solid #d4a96a;
-  padding: 10px 28px;
-  background: rgba(253, 246, 236, 0.8);
-  cursor: pointer;
-  font-family: 'Raleway', sans-serif;
-  transition: background 0.2s;
-}
-
-.cta:hover {
-  background: rgba(212, 169, 106, 0.2);
-}
-
-/* ── Wax seal ── */
+/* ── Sceau cœur ── */
 .seal {
   position: absolute;
-  top: 50%;
+  top: 70px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(64px, 14vw, 96px);
-  height: clamp(64px, 14vw, 96px);
-  z-index: 10;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  background: #e8527a;
+  border-radius: 50%;
+  z-index: 6;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 4px 14px rgba(140, 70, 10, 0.5));
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  color: #fff;
+  font-size: 16px;
+  border: 2px solid #d43d65;
+  box-shadow: 0 2px 8px rgba(220, 80, 120, 0.35);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .open .seal {
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.2);
+  transform: translateX(-50%) scale(0.4);
 }
 
-/* ── Hint text ── */
-.hint {
+/* ── Timbre ── */
+.stamp {
   position: absolute;
-  bottom: clamp(24px, 5vh, 48px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #b8924a;
-  font-family: 'Raleway', sans-serif;
-  z-index: 10;
-  white-space: nowrap;
-  opacity: 0.8;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 44px;
+  background: #fff5f9;
+  border: 1px solid #f0a8c4;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
 }
 
-/* ── Responsive ── */
-@media (min-width: 480px) {
-  .scene {
-    background: #ede0cc;
-  }
+.stamp::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 0.5px dashed #f0a8c4;
+}
 
-  .cardWrap {
-    box-shadow: 0 0 80px rgba(120, 70, 10, 0.15);
-  }
+.stampInner {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.stampText {
+  font-size: 7px;
+  color: #d48aaa;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+
+/* ── Cachet postal ── */
+.postmark {
+  position: absolute;
+  top: 12px;
+  right: 56px;
+  width: 48px;
+  height: 38px;
+  border: 1px solid #f0a8c4;
+  border-radius: 50%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.postmarkText {
+  font-size: 7px;
+  color: #d48aaa;
+  text-align: center;
+  line-height: 1.3;
+  font-family: 'Lato', sans-serif;
+}
+
+/* ── Adresse ── */
+.address {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  z-index: 4;
+}
+
+.addrLine {
+  height: 1.5px;
+  background: #f0a8c4;
+  border-radius: 1px;
+  margin-bottom: 5px;
+  opacity: 0.7;
+}
+
+.addrLine:nth-child(1) { width: 80px; }
+.addrLine:nth-child(2) { width: 64px; }
+.addrLine:nth-child(3) { width: 72px; }
+
+/* ── Bouton ── */
+.cta {
+  margin-top: 2.5rem;
+  font-size: 13px;
+  color: #c2547a;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid #f0a8c4;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, box-shadow 0.2s;
+  font-family: 'Lato', sans-serif;
+}
+
+.cta:hover {
+  background: rgba(255, 200, 220, 0.4);
+  box-shadow: 0 4px 16px rgba(220, 100, 150, 0.2);
 }
