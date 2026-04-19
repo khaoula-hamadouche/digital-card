@@ -84,12 +84,13 @@ export default function Home() {
           <div className={styles.lStars}>✦ ★ ✦ ★ ✦</div>
           <div className={styles.lGreet}>Chère Nada , 🎀</div>
           <div className={styles.lBody}>
+            Un an de plus, mais t’inquiète… tu restes toujours jeune ❤️ <br />
             Aujourd&apos;hui c&apos;est TON jour, et tu le mérites<br />
-            plus que quiconque... ✨<br /><br />
-            Tu illumines nos vies comme des étoiles<br />
-            dans la nuit la plus sombre. 🌙<br /><br />
-            Que cette année t&apos;apporte tout ce que<br />
-            ton cœur pur désire. 🌸
+            plus que quiconque... ✨<br />
+            Joyeux Anniversaire ! 🎉 <br />
+            Nous te souhaitons une année remplie <br />
+            de bonheur, de réussite et de moments <br />
+            inoubliable . <br />
           </div>
           <div className={styles.lSign}>avec tout notre amour 🎁</div>
           <div className={styles.lFoot}>· · ✦ Les deux Khaoulat ✦ · ·</div>
