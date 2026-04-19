@@ -93,7 +93,7 @@ export default function Home() {
             inoubliable . <br />
           </div>
           <div className={styles.lSign}>avec tout notre amour 🎁</div>
-          <div className={styles.lFoot}>· · ✦ Les deux Khaoulat ✦ · ·</div>
+          <div className={styles.lFoot}>· · ✦ Les deux Khaoula✦ · ·</div>
         </div>
 
         {/* ENVELOPE BODY — behind letter */}
