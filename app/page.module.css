@@ -1,7 +1,8 @@
-/* ── page.module.css — Girly Pink Envelope ── */
+/* ── page.module.css — Birthday Envelope Nada ── */
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:ital,wght@0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:ital,wght@0,400;0,600;1,400&display=swap');
 
+/* ── SCENE ── */
 .scene {
   display: flex;
   flex-direction: column;
@@ -9,329 +10,246 @@
   justify-content: center;
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #fff0f5 0%, #ffe4f0 50%, #ffd6e8 100%);
-  font-family: 'Lato', Georgia, serif;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffdce8 50%, #ffe8f2 100%);
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
 }
 
+/* ── STATIC TITLE ── */
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  color: #c2547a;
+  margin-bottom: 1.2rem;
+  text-shadow: 1px 1px 0 #ffd0e4;
+  text-align: center;
+}
+
+/* ── HINT ── */
 .hint {
-  font-size: 13px;
-  color: #d48aaa;
-  margin-bottom: 2rem;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  color: #c0708a;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-}
-
-/* ── Wrapper ── */
-.envelopeWrap {
-  position: relative;
-  width: 320px;
-  height: 210px;
+  margin-top: 1.4rem;
   cursor: pointer;
-  perspective: 800px;
-  overflow: visible;
 }
 
-/* ── Lettre ── */
+/* ── BALLOONS ── */
+.bc {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -140px;
+  animation: floatUp var(--dur, 4s) var(--del, 0s) ease-in forwards;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateX(0) translateY(0); opacity: 0; }
+  8%   { opacity: 1; }
+  50%  { transform: translateX(18px) translateY(-55vh); opacity: 1; }
+  88%  { opacity: 0.8; }
+  100% { transform: translateX(-12px) translateY(-115vh); opacity: 0; }
+}
+
+/* ── WRAP ── */
+.wrap {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  cursor: pointer;
+  perspective: 900px;
+  /* space above for letter to rise into */
+  margin-top: 200px;
+}
+
+/* ── LETTER ──
+   z-index: 30  →  always above the flap (z-index: 5)
+*/
 .letter {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 30px;
-  width: 284px;
-  background: linear-gradient(160deg, #fff5f9 0%, #fff0f5 100%);
-  border: 1px solid #f5b8d0;
-  border-radius: 8px;
+  bottom: 20px;
+  width: 296px;
+  background: #fff8fb;
+  border: 1.5px solid #f5b8d0;
+  border-radius: 12px;
   padding: 18px 22px 14px;
-  z-index: 10;
+  z-index: 30;          /* ← above flap */
   opacity: 0;
   box-shadow:
-    0 4px 24px rgba(230, 100, 150, 0.15),
-    inset 0 0 0 3px rgba(255, 182, 213, 0.3);
+    0 6px 28px rgba(220, 100, 150, 0.13),
+    inset 0 0 0 2px rgba(255, 190, 220, 0.25);
   transition:
-    bottom 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s,
+    bottom 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s,
     opacity 0.4s ease 0.45s;
 }
 
-/* Petits points déco en fond */
 .letter::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 8px;
-  background-image:
-    radial-gradient(circle, #f9c5d9 1px, transparent 1px);
+  border-radius: 12px;
+  background-image: radial-gradient(circle, #f5b8d0 1px, transparent 1px);
   background-size: 18px 18px;
-  opacity: 0.25;
+  opacity: 0.12;
   pointer-events: none;
 }
 
 .open .letter {
-  bottom: 130px;
+  bottom: 280px;
   opacity: 1;
 }
 
-.letterDeco {
-  text-align: center;
-  font-size: 14px;
-  margin-bottom: 8px;
-  letter-spacing: 4px;
-}
+.lStars { text-align: center; font-size: 15px; margin-bottom: 6px; letter-spacing: 5px; color: #e8a0bc; }
+.lGreet { font-family: 'Dancing Script', cursive; font-size: 19px; color: #c2547a; margin-bottom: 8px; }
+.lBody  { font-size: 12.5px; color: #a0536e; line-height: 1.85; font-style: italic; }
+.lSign  { font-family: 'Dancing Script', cursive; font-size: 15px; color: #d4728f; margin-top: 10px; text-align: right; }
+.lFoot  { text-align: center; font-size: 12px; color: #e8a0bc; margin-top: 7px; letter-spacing: 3px; }
 
-.letterGreeting {
-  font-family: 'Dancing Script', cursive;
-  font-size: 17px;
-  color: #c2547a;
-  margin-bottom: 8px;
-  letter-spacing: 0.02em;
-}
-
-.letterContent {
-  font-size: 12px;
-  color: #a0536e;
-  line-height: 1.8;
-  font-family: 'Lato', sans-serif;
-  font-style: italic;
-}
-
-.letterSign {
-  font-family: 'Dancing Script', cursive;
-  font-size: 15px;
-  color: #d4728f;
-  margin-top: 12px;
-  text-align: right;
-}
-
-.letterDecoBottom {
-  text-align: center;
-  font-size: 13px;
-  color: #e8a0bc;
-  margin-top: 8px;
-  letter-spacing: 3px;
-}
-
-/* ── Enveloppe ── */
+/* ── ENVELOPE ── */
 .envelope {
   position: absolute;
   bottom: 0;
-  width: 320px;
-  height: 210px;
-  z-index: 2;
+  width: 340px;
+  height: 220px;
+  z-index: 20;
 }
 
 .envBody {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: #fce4ef;
-  border: 1px solid #f0a8c4;
-  border-radius: 4px;
+  bottom: 0; width: 100%; height: 100%;
+  background: linear-gradient(145deg, #fce8f2 0%, #f9d6e8 100%);
+  border: 1.5px solid #f0a8c4;
+  border-radius: 5px;
   overflow: hidden;
 }
 
-.envSideLeft {
+.envBody::after {
+  content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 160px solid #f7c5db;
-  border-top: 105px solid transparent;
-  border-bottom: 105px solid transparent;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 1px,
+    transparent 1px, transparent 11px
+  );
+  pointer-events: none;
 }
 
-.envSideRight {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-right: 160px solid #f7c5db;
-  border-top: 105px solid transparent;
-  border-bottom: 105px solid transparent;
+.envL {
+  position: absolute; bottom: 0; left: 0; width: 0; height: 0;
+  border-left: 170px solid #f4bdd8;
+  border-top: 110px solid transparent;
+  border-bottom: 110px solid transparent;
 }
-
-.envBottomFlap {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 160px solid transparent;
-  border-right: 160px solid transparent;
-  border-bottom: 115px solid #f4b0cc;
+.envR {
+  position: absolute; bottom: 0; right: 0; width: 0; height: 0;
+  border-right: 170px solid #f4bdd8;
+  border-top: 110px solid transparent;
+  border-bottom: 110px solid transparent;
+}
+.envBot {
+  position: absolute; bottom: 0; left: 0; width: 0; height: 0;
+  border-left: 170px solid transparent;
+  border-right: 170px solid transparent;
+  border-bottom: 120px solid #eda0c2;
   z-index: 3;
 }
 
-/* ── Rabat animé ── */
-.envFlapWrap {
+/* ── FLAP — z-index: 5, BELOW letter (30) ── */
+.flapWrap {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 115px;
+  top: 0; left: 0;
+  width: 100%; height: 120px;
   transform-origin: top center;
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 5;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;           /* ← below letter */
 }
 
-.open .envFlapWrap {
+.open .flapWrap {
   transform: rotateX(-178deg);
 }
 
-.envFlapFront {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 160px solid transparent;
-  border-right: 160px solid transparent;
-  border-top: 115px solid #f9cede;
+.flapF {
+  position: absolute; top: 0; left: 0; width: 0; height: 0;
+  border-left: 170px solid transparent;
+  border-right: 170px solid transparent;
+  border-top: 120px solid #fad0e8;
   backface-visibility: visible;
 }
-
-.envFlapBack {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 160px solid transparent;
-  border-right: 160px solid transparent;
-  border-top: 115px solid #fde0ec;
+.flapB {
+  position: absolute; top: 0; left: 0; width: 0; height: 0;
+  border-left: 170px solid transparent;
+  border-right: 170px solid transparent;
+  border-top: 120px solid #fde8f3;
   transform: rotateX(180deg);
   backface-visibility: visible;
 }
 
-/* ── Sceau cœur ── */
+/* ── SEAL ── */
 .seal {
   position: absolute;
-  top: 70px;
-  left: 50%;
+  top: 72px; left: 50%;
   transform: translateX(-50%);
-  width: 36px;
-  height: 36px;
-  background: #e8527a;
+  width: 40px; height: 40px;
+  background: radial-gradient(circle at 38% 36%, #ff9dc0, #e0527a);
   border-radius: 50%;
   z-index: 6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-  border: 2px solid #d43d65;
-  box-shadow: 0 2px 8px rgba(220, 80, 120, 0.35);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px;
+  border: 2px solid #c84070;
+  box-shadow: 0 3px 10px rgba(200, 60, 110, 0.35);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .open .seal {
   opacity: 0;
-  transform: translateX(-50%) scale(0.4);
+  transform: translateX(-50%) scale(0.3);
 }
 
-/* ── Timbre ── */
+/* ── STAMP ── */
 .stamp {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  width: 36px;
-  height: 44px;
-  background: #fff5f9;
-  border: 1px solid #f0a8c4;
+  position: absolute; top: 14px; right: 16px;
+  width: 38px; height: 46px;
+  background: #fff8fb; border: 1.5px solid #f0a8c4;
   z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  border-radius: 2px;
 }
+.stamp::before { content: ""; position: absolute; inset: 4px; border: 0.5px dashed #f0a8c4; }
+.stampI { font-size: 15px; }
+.stampT { font-size: 6.5px; color: #d48aaa; letter-spacing: 0.07em; text-transform: uppercase; }
 
-.stamp::before {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border: 0.5px dashed #f0a8c4;
-}
-
-.stampInner {
-  font-size: 15px;
-  line-height: 1;
-}
-
-.stampText {
-  font-size: 7px;
-  color: #d48aaa;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-}
-
-/* ── Cachet postal ── */
+/* ── POSTMARK ── */
 .postmark {
-  position: absolute;
-  top: 12px;
-  right: 56px;
-  width: 48px;
-  height: 38px;
-  border: 1px solid #f0a8c4;
-  border-radius: 50%;
+  position: absolute; top: 14px; right: 60px;
+  width: 50px; height: 40px;
+  border: 1.5px solid #f0a8c4; border-radius: 50%;
   z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
+.pmText { font-size: 7px; color: #d48aaa; text-align: center; line-height: 1.4; }
 
-.postmarkText {
-  font-size: 7px;
-  color: #d48aaa;
-  text-align: center;
-  line-height: 1.3;
-  font-family: 'Lato', sans-serif;
+/* ── ADDRESS ── */
+.address { position: absolute; bottom: 24px; left: 22px; z-index: 4; }
+.addrLine { height: 2px; background: linear-gradient(to right, #f0a8c4, transparent); border-radius: 1px; margin-bottom: 5px; opacity: 0.7; }
+.addrLine:nth-child(1) { width: 86px; }
+.addrLine:nth-child(2) { width: 68px; }
+.addrLine:nth-child(3) { width: 76px; }
+
+/* ── STAR DECOS ── */
+.star {
+  position: absolute; font-size: 13px; color: #e8a0bc;
+  opacity: 0; transition: opacity 0.4s ease 1s;
+  pointer-events: none; z-index: 1;
 }
-
-/* ── Adresse ── */
-.address {
-  position: absolute;
-  bottom: 22px;
-  left: 22px;
-  z-index: 4;
-}
-
-.addrLine {
-  height: 1.5px;
-  background: #f0a8c4;
-  border-radius: 1px;
-  margin-bottom: 5px;
-  opacity: 0.7;
-}
-
-.addrLine:nth-child(1) { width: 80px; }
-.addrLine:nth-child(2) { width: 64px; }
-.addrLine:nth-child(3) { width: 72px; }
-
-/* ── Bouton ── */
-.cta {
-  margin-top: 2.5rem;
-  font-size: 13px;
-  color: #c2547a;
-  cursor: pointer;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: 1px solid #f0a8c4;
-  padding: 10px 24px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(4px);
-  transition: background 0.2s, box-shadow 0.2s;
-  font-family: 'Lato', sans-serif;
-}
-
-.cta:hover {
-  background: rgba(255, 200, 220, 0.4);
-  box-shadow: 0 4px 16px rgba(220, 100, 150, 0.2);
-}
+.open .star { opacity: 1; }
